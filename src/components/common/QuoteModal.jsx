@@ -39,7 +39,7 @@ export default function QuoteModal({ isOpen, onClose, preselectedProduct = null 
       (formData.dimensions ? `*Dimensions / Specs:* ${formData.dimensions}\n` : '') +
       (formData.notes ? `*Notes:* ${formData.notes}\n` : '');
 
-    const url = `https://wa.me/919004116634?text=${encodeURIComponent(text)}`;
+    const url = `https://api.whatsapp.com/send?phone=919004116634&text=${encodeURIComponent(text)}`;
     window.open(url, '_blank');
     onClose();
   };

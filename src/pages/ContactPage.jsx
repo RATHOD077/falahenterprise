@@ -40,7 +40,7 @@ export default function ContactPage() {
       `*Subject:* ${formData.subject}\n` +
       `*Message:* ${formData.message}\n`;
 
-    const url = `https://wa.me/919004116634?text=${encodeURIComponent(text)}`;
+    const url = `https://api.whatsapp.com/send?phone=919004116634&text=${encodeURIComponent(text)}`;
     window.open(url, '_blank');
   };
 

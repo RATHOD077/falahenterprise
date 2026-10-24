@@ -9,7 +9,9 @@ export const siteConfig = {
   email: "info@falahenterprise.com",
   address: "Shop no.6, Eklavya Building, Near NL Complex, Dahisar East, Anand Nagar Metro Station, Mumbai, Maharashtra 400068",
   mapsUrl: "https://maps.google.com/?q=Shop+no.6,+Eklavya+Building,+near+NL+complex,+Dahisar,+East+Anand+Nagar+Metro+Station+Mumbai",
-  whatsappUrl: "https://wa.me/919004116634?text=Hello%20Falah%20Enterprise,%20I%20would%20like%20to%20inquire%20about%20your%20products.",
+  whatsappUrl: "https://api.whatsapp.com/send?phone=919004116634&text=Hello%20Falah%20Enterprise,%20I%20would%20like%20to%20inquire%20about%20your%20products.",
+  whatsappNumber: "+91 9004116634",
+  isWhatsAppActive: true,
   socials: [
     { name: "Facebook", href: "https://www.facebook.com/HaruTheme-2122613897977372", icon: "Facebook" },
     { name: "Twitter", href: "https://twitter.com/HaruTheme", icon: "Twitter" },
