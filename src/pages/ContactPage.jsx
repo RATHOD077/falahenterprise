@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import WhatsAppIcon from '../components/common/WhatsAppIcon';
 import { 
   Phone, 
   Mail, 
@@ -8,7 +7,8 @@ import {
   Send, 
   CheckCircle2, 
   Building2,
-  ExternalLink
+  ExternalLink,
+  PhoneCall
 } from 'lucide-react';
 import { siteConfig } from '../data/siteConfig';
 
@@ -30,18 +30,6 @@ export default function ContactPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setSubmitted(true);
-  };
-
-  const handleWhatsApp = () => {
-    const text = `*New Contact Message - Falah Enterprise*\n\n` +
-      `*Name:* ${formData.name || 'N/A'}\n` +
-      `*Phone:* ${formData.phone || 'N/A'}\n` +
-      `*Email:* ${formData.email || 'N/A'}\n` +
-      `*Subject:* ${formData.subject}\n` +
-      `*Message:* ${formData.message}\n`;
-
-    const url = `https://api.whatsapp.com/send?phone=919004116634&text=${encodeURIComponent(text)}`;
-    window.open(url, '_blank');
   };
 
   return (
@@ -119,24 +107,21 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              {/* WhatsApp direct banner */}
-              <div className="bg-emerald-50 border border-emerald-200 p-5 rounded-2xl space-y-3">
-                <div className="flex items-center space-x-2 text-emerald-900 font-bold text-sm">
-                  <WhatsAppIcon className="w-5 h-5 text-[#25D366]" />
-                  <span>Prefer Instant Chat on WhatsApp?</span>
+              {/* Direct consultation assistance banner */}
+              <div className="bg-slate-900 text-white p-5 rounded-2xl space-y-3 border border-slate-800">
+                <div className="flex items-center space-x-2 text-brand-400 font-bold text-sm">
+                  <PhoneCall className="w-5 h-5 text-amber-400" />
+                  <span>Immediate Assistance?</span>
                 </div>
-                <p className="text-xs text-emerald-800 leading-relaxed">
-                  Connect immediately with our product team for fast photos, box samples, and quotes directly on your phone.
+                <p className="text-xs text-slate-300 leading-relaxed">
+                  Call our Mumbai packaging unit directly to speak with an engineering specialist regarding custom box specifications or hotel supplies.
                 </p>
                 <a
-                  href={siteConfig.whatsappUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center space-x-2 px-4 py-2 bg-[#25D366] hover:bg-[#20ba59] text-white rounded-lg text-xs font-semibold shadow-xs transition-colors"
+                  href={`tel:${siteConfig.phoneRaw}`}
+                  className="inline-flex items-center space-x-2 px-4 py-2.5 bg-brand-600 hover:bg-brand-500 text-white rounded-lg text-xs font-semibold shadow-xs transition-colors"
                 >
-                  <WhatsAppIcon className="w-4 h-4" />
-                  <span>Open WhatsApp Chat</span>
-                  <ExternalLink className="w-3.5 h-3.5 ml-1" />
+                  <Phone className="w-3.5 h-3.5" />
+                  <span>Call {siteConfig.phone}</span>
                 </a>
               </div>
             </div>
@@ -250,21 +235,13 @@ export default function ContactPage() {
                     ></textarea>
                   </div>
 
-                  <div className="pt-2 flex flex-col sm:flex-row gap-3">
+                  <div className="pt-2">
                     <button
                       type="submit"
-                      className="flex-1 py-3 px-5 bg-brand-600 hover:bg-brand-700 active:scale-98 text-white rounded-xl font-bold text-sm shadow-md shadow-brand-600/20 transition-all flex items-center justify-center space-x-2"
+                      className="w-full py-3.5 px-5 bg-brand-600 hover:bg-brand-700 active:scale-98 text-white rounded-xl font-bold text-sm shadow-md shadow-brand-600/20 transition-all flex items-center justify-center space-x-2"
                     >
                       <Send className="w-4 h-4" />
                       <span>Submit Inquiries</span>
-                    </button>
-                    <button
-                      type="button"
-                      onClick={handleWhatsApp}
-                      className="py-3 px-5 bg-[#25D366] hover:bg-[#20ba59] active:scale-98 text-white rounded-xl font-bold text-sm shadow-md shadow-[#25D366]/20 transition-all flex items-center justify-center space-x-2"
-                    >
-                      <WhatsAppIcon className="w-4 h-4" />
-                      <span>Send Directly to WhatsApp</span>
                     </button>
                   </div>
                 </form>

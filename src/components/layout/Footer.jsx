@@ -1,11 +1,9 @@
 import React from 'react';
-import WhatsAppIcon from '../common/WhatsAppIcon';
 import { 
   Package, 
   Phone, 
   Mail, 
   MapPin, 
-  ExternalLink, 
   ShieldCheck, 
   Truck, 
   Sparkles,
@@ -87,16 +85,6 @@ export default function Footer({ onNavigate, onOpenQuote }) {
 
             {/* Social Media Link Icons */}
             <div className="flex items-center space-x-3 pt-2">
-              <a 
-                href={siteConfig.whatsappUrl} 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="w-8 h-8 rounded-lg bg-slate-900 hover:bg-[#25D366] text-slate-300 hover:text-white flex items-center justify-center transition-colors"
-                aria-label="WhatsApp"
-                title="Chat on WhatsApp"
-              >
-                <WhatsAppIcon className="w-4 h-4" />
-              </a>
               <a 
                 href={siteConfig.socials[0].href} 
                 target="_blank" 

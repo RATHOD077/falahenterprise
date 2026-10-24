@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import WhatsAppIcon from '../components/common/WhatsAppIcon';
 import { 
   Package, 
   Sparkles, 
@@ -10,6 +9,7 @@ import {
   Factory, 
   Layers, 
   PhoneCall, 
+  Mail,
   CheckCircle,
   FileCheck2,
   Clock,
@@ -776,13 +776,11 @@ export default function HomePage({ onNavigate, onOpenQuote }) {
             <motion.a
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
-              href={siteConfig.whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-6 py-3.5 bg-[#25D366] hover:bg-[#20ba59] text-white rounded-xl font-bold text-sm shadow-md transition-all text-center flex items-center justify-center space-x-2"
+              href={`tel:${siteConfig.phoneRaw}`}
+              className="px-6 py-3.5 bg-slate-900 hover:bg-slate-800 text-white rounded-xl font-bold text-sm shadow-md transition-all text-center flex items-center justify-center space-x-2"
             >
-              <WhatsAppIcon className="w-5 h-5" />
-              <span>WhatsApp Us</span>
+              <PhoneCall className="w-4 h-4 text-amber-400" />
+              <span>Call Us Direct</span>
             </motion.a>
           </div>
         </motion.div>

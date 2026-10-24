@@ -1,6 +1,5 @@
 import React from 'react';
 import { Phone, Mail, MapPin, Clock, Facebook, Twitter, Instagram, Youtube } from 'lucide-react';
-import WhatsAppIcon from '../common/WhatsAppIcon';
 import { siteConfig } from '../../data/siteConfig';
 
 export default function TopBar() {
@@ -43,16 +42,6 @@ export default function TopBar() {
             </div>
             
             <div className="flex items-center space-x-2.5 pl-2 border-l border-slate-800">
-              <a 
-                href={siteConfig.whatsappUrl} 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="text-slate-400 hover:text-[#25D366] transition-colors"
-                aria-label="WhatsApp"
-                title="Chat on WhatsApp"
-              >
-                <WhatsAppIcon className="w-3.5 h-3.5" />
-              </a>
               <a 
                 href={siteConfig.socials[0].href} 
                 target="_blank" 

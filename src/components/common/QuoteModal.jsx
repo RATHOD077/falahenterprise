@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Send, CheckCircle2, Box, Sparkles } from 'lucide-react';
-import WhatsAppIcon from './WhatsAppIcon';
+import { X, Send, CheckCircle2, Box, Sparkles, PhoneCall } from 'lucide-react';
 import { packagingProducts } from '../../data/packagingProducts';
 import { hospitalityProducts } from '../../data/hospitalityProducts';
 import { siteConfig } from '../../data/siteConfig';
@@ -27,21 +26,6 @@ export default function QuoteModal({ isOpen, onClose, preselectedProduct = null 
   const handleSubmit = (e) => {
     e.preventDefault();
     setSubmitted(true);
-  };
-
-  const handleWhatsAppSubmit = () => {
-    const text = `*New Quote Request - Falah Enterprise*\n\n` +
-      `*Name:* ${formData.name || 'N/A'}\n` +
-      `*Phone:* ${formData.phone || 'N/A'}\n` +
-      `*Category:* ${formData.category}\n` +
-      `*Product:* ${formData.product}\n` +
-      `*Quantity:* ${formData.quantity}\n` +
-      (formData.dimensions ? `*Dimensions / Specs:* ${formData.dimensions}\n` : '') +
-      (formData.notes ? `*Notes:* ${formData.notes}\n` : '');
-
-    const url = `https://api.whatsapp.com/send?phone=919004116634&text=${encodeURIComponent(text)}`;
-    window.open(url, '_blank');
-    onClose();
   };
 
   return (
@@ -98,18 +82,16 @@ export default function QuoteModal({ isOpen, onClose, preselectedProduct = null 
                   </div>
                   <h3 className="text-xl font-bold text-slate-900">Thank You, {formData.name || 'Valued Customer'}!</h3>
                   <p className="text-sm text-slate-600 max-w-md mx-auto">
-                    Your quotation request for <span className="font-semibold text-slate-900">{formData.product}</span> has been received. Our team will contact you shortly at <span className="font-semibold text-slate-900">{formData.phone}</span>.
+                    Your quotation request for <span className="font-semibold text-slate-900">{formData.product}</span> has been received. Our packaging team will contact you shortly at <span className="font-semibold text-slate-900">{formData.phone}</span>.
                   </p>
                   <div className="pt-4 flex flex-col sm:flex-row gap-3 justify-center">
-                    <motion.button
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                      onClick={handleWhatsAppSubmit}
-                      className="px-5 py-2.5 rounded-lg bg-[#25D366] hover:bg-[#20ba59] text-white font-semibold text-sm transition-colors flex items-center justify-center space-x-2 shadow-md shadow-[#25D366]/20"
+                    <a
+                      href={`tel:${siteConfig.phoneRaw}`}
+                      className="px-5 py-2.5 rounded-lg bg-brand-600 hover:bg-brand-700 text-white font-semibold text-sm transition-colors flex items-center justify-center space-x-2 shadow-md shadow-brand-600/20"
                     >
-                      <WhatsAppIcon className="w-4 h-4" />
-                      <span>Send Directly on WhatsApp</span>
-                    </motion.button>
+                      <PhoneCall className="w-4 h-4" />
+                      <span>Call Us: {siteConfig.phone}</span>
+                    </a>
                     <button
                       onClick={() => {
                         setSubmitted(false);
@@ -266,25 +248,15 @@ export default function QuoteModal({ isOpen, onClose, preselectedProduct = null 
                   </div>
 
                   {/* Buttons */}
-                  <div className="pt-2 flex flex-col sm:flex-row gap-3">
+                  <div className="pt-2">
                     <motion.button
                       whileHover={{ scale: 1.01 }}
                       whileTap={{ scale: 0.98 }}
                       type="submit"
-                      className="flex-1 py-3 px-4 bg-brand-600 hover:bg-brand-700 text-white rounded-lg font-semibold text-sm shadow-md shadow-brand-600/20 transition-all flex items-center justify-center space-x-2"
+                      className="w-full py-3.5 px-4 bg-brand-600 hover:bg-brand-700 text-white rounded-xl font-bold text-sm shadow-md shadow-brand-600/20 transition-all flex items-center justify-center space-x-2"
                     >
                       <Send className="w-4 h-4" />
                       <span>Submit RFQ Request</span>
-                    </motion.button>
-                    <motion.button
-                      whileHover={{ scale: 1.01 }}
-                      whileTap={{ scale: 0.98 }}
-                      type="button"
-                      onClick={handleWhatsAppSubmit}
-                      className="py-3 px-4 bg-[#25D366] hover:bg-[#20ba59] text-white rounded-lg font-semibold text-sm shadow-md shadow-[#25D366]/20 transition-all flex items-center justify-center space-x-2"
-                    >
-                      <WhatsAppIcon className="w-4 h-4" />
-                      <span>Send via WhatsApp</span>
                     </motion.button>
                   </div>
                 </form>

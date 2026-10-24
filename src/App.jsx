@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import TopBar from './components/layout/TopBar';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
-import WhatsAppFloat from './components/layout/WhatsAppFloat';
 import QuoteModal from './components/common/QuoteModal';
 
 import HomePage from './pages/HomePage';
@@ -74,9 +73,6 @@ export default function App() {
         onNavigate={handleNavigate}
         onOpenQuote={() => handleOpenQuote()}
       />
-
-      {/* Floating WhatsApp Quick Action */}
-      <WhatsAppFloat />
 
       {/* Global Quotation Request Modal */}
       <QuoteModal
